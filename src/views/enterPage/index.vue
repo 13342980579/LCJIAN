@@ -3,7 +3,7 @@
         <div class="menu-box">
             <div class="menu-head-first">
                 <div class="menu-head-layout ">
-                    <span style="float:left;padding:0 0 0 10px">{{this.value}}</span>
+                    <span style="float:left;padding:0 0 0 10px">{{this.label}}</span>
                     <div style="float:right; padding:0 10px">
                         <span style=" padding:0 10px ; cursor: pointer;" v-for="(item,index) in headList" @click="jump(index)" :key="index">{{item.step}}</span>
                         <span style=" padding:0 10px ; cursor: pointer;" @click="logout">Layout</span>
@@ -149,12 +149,12 @@ export default {
         };
     },
    computed:{
-      ...mapState(['value','baseUrl']),//mapState通过扩展运算符把vux里的city映射到名字为city的计算属性中（映射到当前vue的this对象上）
+      ...mapState(['label','baseUrl']),//mapState通过扩展运算符把vux里的city映射到名字为city的计算属性中（映射到当前vue的this对象上）
      // ...mapGetters(['doubleState'])
     },
     methods: {
         logout() {
-            console.log(this.value)
+            console.log(this.label)
             this.$store.dispatch("LogOut").then(() => {
                 location.reload(); // In order to re-instantiate the vue-router object to avoid bugs
             });

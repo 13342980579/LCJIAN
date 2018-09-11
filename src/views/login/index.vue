@@ -22,7 +22,7 @@
                     <svg-icon icon-class="theme" />
                 </span>
                 <el-select v-model="value" placeholder="请选择">
-                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item">
                     </el-option>
                 </el-select>
             </el-form-item>
@@ -93,7 +93,8 @@ export default {
                     label: "开发环境"
                 }
             ],
-            value: "测试环境",
+            value: {value: "test",
+                    label: "测试环境"},
             baseUrl: "3"
         };
     },

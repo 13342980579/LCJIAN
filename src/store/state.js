@@ -16,7 +16,8 @@ const state={
 
 export default{
     //city: localStorage.city||'北京'
-    value:defaultValue,
+    value:localStorage.value,
+    label:localStorage.label,
     baseUrl:localStorage.baseUrl,
     state
 }                                    
