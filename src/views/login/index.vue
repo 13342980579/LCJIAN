@@ -31,11 +31,6 @@
                     Sign in
                 </el-button>
             </el-form-item>
-            <!-- <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: admin</span>
-      </div> -->
-
         </el-form>
     </div>
 </template>
@@ -162,8 +157,7 @@ $light_gray: #eee;
             -webkit-appearance: none;
             border-radius: 0px;
             padding: 12px 5px 12px 15px;
-            //color: $light_gray;
-            color: black;
+            color: $light_gray;
             height: 47px;
             &:-webkit-autofill {
                 -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
@@ -172,10 +166,9 @@ $light_gray: #eee;
         }
     }
     .el-form-item {
-        // border: 1px solid rgba(255, 255, 255, 0.1);
-        border: 1px solid black;
-        //background: rgba(0, 0, 0, 0.1);
-        background: #e6e6e6;
+         border: 1px solid rgba(255, 255, 255, 0.1);
+       // border: 1px solid black;
+        background: rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         color: #454545;
     }
@@ -190,8 +183,7 @@ $light_gray: #eee;
     position: fixed;
     height: 100%;
     width: 100%;
-    // background-color: $bg;
-    background: #e6e6e6;
+    background-color: $bg;
     .login-form {
         position: absolute;
         left: 0;
@@ -223,8 +215,7 @@ $light_gray: #eee;
     .title {
         font-size: 26px;
         font-weight: 400;
-        //color: $light_gray;
-        color: #303133;
+        color: $light_gray;
         margin: 0px auto 40px auto;
         text-align: center;
         font-weight: bold;

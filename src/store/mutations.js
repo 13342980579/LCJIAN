@@ -1,6 +1,5 @@
 export default{
     changeCity (state,value) {
-        debugger
         state.value=value.envri.value
         state.label=value.envri.label
         state.baseUrl=value.base

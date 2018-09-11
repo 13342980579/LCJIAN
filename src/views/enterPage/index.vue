@@ -2,11 +2,11 @@
     <div class="menu-page">
         <div class="menu-box">
             <div class="menu-head-first">
-                <div class="menu-head-layout ">
-                    <span style="float:left;padding:0 0 0 10px">{{this.label}}</span>
-                    <div style="float:right; padding:0 10px">
-                        <span style=" padding:0 10px ; cursor: pointer;" v-for="(item,index) in headList" @click="jump(index)" :key="index">{{item.step}}</span>
-                        <span style=" padding:0 10px ; cursor: pointer;" @click="logout">Layout</span>
+                <div class="menu-head-nav ">
+                    <span>{{this.label}}</span>
+                    <div>
+                        <span v-for="(item,index) in headList" @click="jump(index)" :key="index">{{item.step}}</span>
+                        <span @click="logout">退出</span>
                     </div>
 
                 </div>
@@ -145,30 +145,29 @@ export default {
                     ]
                 }
             ],
-            headList: [{ step: "about" }, { step: "about" }]
+            headList: [{ step: "报表统计" }, { step: "设置" }]
         };
     },
-   computed:{
-      ...mapState(['label','baseUrl']),//mapState通过扩展运算符把vux里的city映射到名字为city的计算属性中（映射到当前vue的this对象上）
-     // ...mapGetters(['doubleState'])
+    computed: {
+        ...mapState(["label", "baseUrl"]) //mapState通过扩展运算符把vux里的city映射到名字为city的计算属性中（映射到当前vue的this对象上）
+        // ...mapGetters(['doubleState'])
     },
     methods: {
         logout() {
-            console.log(this.label)
+            console.log(this.label);
             this.$store.dispatch("LogOut").then(() => {
                 location.reload(); // In order to re-instantiate the vue-router object to avoid bugs
             });
         },
         handleLi() {
             //window.location.href="http://10.201.3.81:3034"
-            
+
             window.open("http://10.201.3.81:3034");
         },
         jump(index) {
-            debugger
             // 用 class="d_jump" 添加锚点
             let jump = document.querySelectorAll(".d_jump");
-            let total = jump[index].offsetTop-50; // 获取需要滚动的距离,50为头部遮挡住的高度
+            let total = jump[index].offsetTop - 50; // 获取需要滚动的距离,50为头部遮挡住的高度
             let distance =
                 document.documentElement.scrollTop || document.body.scrollTop;
             // 平滑滚动，时长500ms，每10ms一跳，共50跳
@@ -231,6 +230,22 @@ export default {
             top: 0px;
             color: #fff;
             font-weight: 600;
+             .menu-head-nav {
+                padding: 0 10px;
+                color: #fff;
+                span {
+                    float: left;
+                    padding: 0 0 0 10px;
+                }
+                div {
+                    float: right;
+                    padding: 0 10px;
+                    span {
+                        padding: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
         .menu-head {
             background: #ffffff;
@@ -238,10 +253,6 @@ export default {
             height: 360px;
             background: url(/src/assets/carousel-bg.jpg) 0 0 repeat fixed;
             position: relative;
-            .menu-head-layout {
-                padding: 13px 18px;
-                color: #fff;
-            }
             .menu-head-body {
                 width: 1200px;
                 height: 140px;
@@ -264,7 +275,7 @@ export default {
         }
         .menu-body {
             margin: 10px auto;
-            width: 969px;
+            width: 1200px;
             .menu-body-head {
                 text-align: center;
                 h1 {
